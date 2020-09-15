@@ -46,3 +46,27 @@ def introduction(age, gender, *names)
 end
 
 puts introduction(20, 'male', 'Qoosim', 'AbdulGhaniyy', 'Ayinde')
+
+puts "====================="
+
+def add(*numbers)
+  numbers.inject(0) { |sum, number| sum + number }
+end
+
+def subtract(*numbers)
+  current_result = numbers.shift
+  numbers.inject(current_result) { |current_result, number|  current_result - number}
+end
+
+def calculate(method, *numbers)
+  case method
+  when add
+    add(*numbers)
+  when subtract
+    subtract(*numbers)
+  end
+end
+
+
+p calculate(add, 4, 5, 6, 8)
+p calculate(subtract, 8, 3, 7, 9)
